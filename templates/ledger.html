@@ -1,0 +1,89 @@
+<!DOCTYPE HTML>
+<html>
+		
+	<head>
+		<title>Ledger</title>
+	</head>
+
+	<body class="body-login">
+		<div class="page-container" align="center">
+			<div style="padding:20px">
+				<h1>Go-Block (simple python blockchain)</h1>
+				<h3>by : Sid .B</hr3>
+					<h3>GitHub <a href="https://github.com/sidonesia/go-block">
+							https://github.com/sidonesia/go-block
+						</a></hr3>
+			</div>
+			<div style="padding:5px">
+				<h3>
+					<a href="/view/blockchain">Global ledger</a> | 
+					<a href="/view/user-balance">User balances</a> 
+				</h3>
+			</div>
+			{% for block in blockchain_list %}
+				<table width="1000px" border="1" cellpadding="0">
+					<tr>
+						<td width="30%"> block </td>
+						<td width="70%"> {{ block.block }} </td>
+					</tr>
+					<tr>
+						<td width="30%"> timestamp </td>
+						<td width="70%"> {{ block.timestamp }} </td>
+					</tr>
+					<tr>
+						<td width="30%"> proof </td>
+						<td width="70%"> {{ block.proof }} </td>
+					</tr>
+					<tr>
+						<td width="30%"> last_proof </td>
+						<td width="70%"> {{ block.last_proof }} </td>
+					</tr>
+					<tr>
+						<td width="30%"> trans_count </td>
+						<td width="70%"> {{ block.trans_count }} </td>
+					</tr>
+					<tr>
+						<td width="30%"> current_hash </td>
+						<td width="70%"> {{ block.current_hash }} </td>
+					</tr>
+					<tr>
+						<td width="30%"> previous_hash </td>
+						<td width="70%"> {{ block.previous_hash }} </td>
+					</tr>
+					<tr>
+						<td width="30%"> Transactions </td>
+						<td width="70%">
+							{% if block.transaction |length > 0 %}
+									{% for trans_item in block.transaction %}
+										<table width="100%" 
+											border="0" cellpadding="0" >
+										<tr>
+											<td>from</td>
+											<td>{{trans_item.from}}</td>
+										</tr>
+										<tr>
+											<td>to</td>
+											<td>{{trans_item.to}}</td>
+										</tr>
+										<tr>
+											<td>trans_hash</td>
+											<td>{{trans_item.trans_hash}}</td>
+										</tr>
+										<tr>
+											<td>raw data</td>
+											<td>{{trans_item.raw_data_block}}</td>
+										</tr>
+										</table>
+										<hr></hr>
+									{% endfor %}
+							{% else %}
+								NO TRANSACTIONS
+							{% endif %}
+						</td>
+					</tr>
+				</table>
+				<hr></hr>
+			{% endfor %}
+		</div>
+	</body>
+</html>
