@@ -17,7 +17,8 @@
 			<div style="padding:5px">
 				<h3>
 					<a href="/view/blockchain">Global ledger</a> | 
-					<a href="/view/user-balance">User balances</a> 
+					<a href="/view/user-balance">User balances</a> |
+					<a href="/view/chain-api">Blockchain API's</a> 
 				</h3>
 			</div>
 			{% for block in blockchain_list %}
@@ -51,26 +52,26 @@
 						<td width="70%"> {{ block.previous_hash }} </td>
 					</tr>
 					<tr>
-						<td width="30%"> Transactions </td>
+						<td width="30%" valign="top"> Transactions </td>
 						<td width="70%">
 							{% if block.transaction |length > 0 %}
 									{% for trans_item in block.transaction %}
 										<table width="100%" 
 											border="0" cellpadding="0" >
 										<tr>
-											<td>from</td>
+											<td><span style="padding:5px">from</span></td>
 											<td>{{trans_item.from}}</td>
 										</tr>
 										<tr>
-											<td>to</td>
+											<td><span style="padding:5px">to</span></td>
 											<td>{{trans_item.to}}</td>
 										</tr>
 										<tr>
-											<td>trans_hash</td>
+											<td><span style="padding:5px">trans_hash</span></td>
 											<td>{{trans_item.trans_hash}}</td>
 										</tr>
 										<tr>
-											<td>raw data</td>
+											<td><span style="padding:5px">raw data</span></td>
 											<td>{{trans_item.raw_data_block}}</td>
 										</tr>
 										</table>

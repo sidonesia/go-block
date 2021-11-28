@@ -13,6 +13,7 @@ sys.path.append("pytavia_modules" )
 sys.path.append("pytavia_modules/blockchain") 
 sys.path.append("pytavia_modules/transaction") 
 sys.path.append("pytavia_modules/view") 
+sys.path.append("pytavia_modules/insurance") 
 
 from blockchain      import create_block
 from blockchain      import get_blockchain
@@ -22,6 +23,9 @@ from transaction     import add_transaction
 from transaction     import get_transaction
 
 from view            import view_blockchain
+from view            import view_index
+from view            import view_policy
+from view            import view_api
 
 # adding comments
 from pytavia_stdlib  import utils
@@ -108,12 +112,20 @@ def verify_transaction():
     return response.http_stringify()
 # end def
 
-######### VIEW ARE BELOW #########
+######### VIEW ARE BELOW FOR BLOCKCHAIN#########
 
 @app.route("/view/blockchain", methods=["GET"])
 def view_blockchain_display():
     params   = request.args.to_dict()
     response = view_blockchain.view_blockchain(app).html( params )
+    html     = response.get("data")["html"]
+    return html
+# end def
+
+@app.route("/view/chain-api", methods=["GET"])
+def view_api_display():
+    params   = request.args.to_dict()
+    response = view_api.view_api(app).html( params )
     html     = response.get("data")["html"]
     return html
 # end def

@@ -50,7 +50,9 @@ class view_blockchain:
             "0000"
         )
         try:
-            blockchain_view = self.mgdDB.db_blockchain.find({} , {"_id" : 0})
+            blockchain_view = self.mgdDB.db_blockchain.find(
+                {} , {"_id" : 0}
+            ).sort("rec_timestamp",-1)
             blockchain_list = []
             for blockchain_rec in blockchain_view:
                 block            = blockchain_rec["block"]
@@ -68,7 +70,7 @@ class view_blockchain:
                         "block_hash"  : current_hash
                     },
                     {   "_id" : 0}
-                )
+                ).sort("rec_timestamp" , -1)
                 transaction_list = list( transaction_view )
                 blockchain_rec["transaction"] = transaction_list
                 blockchain_list.append( blockchain_rec )

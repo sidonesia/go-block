@@ -1,0 +1,126 @@
+<!DOCTYPE HTML>
+<html>
+		
+	<head>
+		<title>Ledger</title>
+	</head>
+
+	<body class="body-login">
+		<div class="page-container" align="center">
+			<div style="padding:20px">
+				<h1>Go-Block (simple python blockchain)</h1>
+				<h3>by : Sid .B</hr3>
+					<h3>GitHub <a href="https://github.com/sidonesia/go-block">
+							https://github.com/sidonesia/go-block
+						</a></hr3>
+			</div>
+			<div style="padding:5px">
+				<h3>
+					<a href="/view/blockchain">Global ledger</a> | 
+					<a href="/view/user-balance">User balances</a> |
+					<a href="/view/chain-api">Blockchain API's</a> 
+				</h3>
+			</div>
+			<table width="700px" cellpadding="1" border="1">
+                                <tr>
+                                        <td width="30%" valign="top">
+                                                <b>INITIATE BLOCKCHAIN</b>
+                                        </td>
+                                        <td width="70%">
+                                                <form method="POST" action="/api/initiate-block">
+							<div style="padding:10px">
+								<table width="100%" />
+									<tr>
+										<td width="30%">
+
+										</td>
+										<td width="70%">
+											<input type="submit" 
+												value=" Initiate Blockchain " />
+										</td>
+									</tr>
+								</table>
+							</div>
+                                                </form>
+                                        </td>
+                                </tr>
+				<tr>
+					<td width="30%" valign="top">
+						<b>CREATE BLOCK</b>
+					</td>
+					<td width="70%">
+						<form method="POST" action="/api/create-block">
+							<div style="padding:10px">
+								<table width="100%" />
+									<tr>
+										<td width="30%">
+											<b>miner</b>
+										</td>
+										<td width="70%">
+											<input type="text" name="miner" width="30" />
+										</td>
+									</tr>
+									<tr>
+										<td width="30%">
+											
+										</td>
+										<td width="70%">
+											<input type="submit" value=" Create Block " />
+										</td>
+									</tr>
+								</table>
+							</div>
+						</form>
+					</td>
+				</tr>
+                                <tr>
+                                        <td width="30%" valign="top">
+                                                <b>CREATE TRANSACTION</b>
+                                        </td>
+                                        <td width="70%">
+                                                <form method="POST" action="/api/new-transaction">
+							<div style="padding:10px">
+								<table width="100%" />
+									<tr>
+										<td width="30%">
+											<b>to</b>
+										</td>
+										<td width="70%">
+											<input type="text" name="to" width="30" />
+										</td>
+									</tr>
+									<tr>
+										<td width="30%">
+											<b>from</b>
+										</td>
+										<td width="70%">
+											<input type="text" name="from" width="30" />
+										</td>
+									</tr>
+									<tr>
+										<td width="30%">
+											<b>payload</b>
+										</td>
+										<td width="70%">
+											<textarea cols="40" rows="10" 
+												name="payload">{"amount" : 20 , "type" : "TRANSACTION" }</textarea>
+										</td>
+									</tr>
+									<tr>
+										<td width="30%">
+
+										</td>
+										<td width="70%">
+											<input type="submit" 
+												value=" Create Transaction " />
+										</td>
+									</tr>
+								</table>
+							</div>
+                                                </form>
+                                        </td>
+                                </tr>
+			</table>
+		</div>
+	</body>
+</html>

@@ -162,5 +162,13 @@ db = {
         "last_proof"            : 0 ,
         "last_hash"             : "",
         "fk_block_id"           : "",
+    },
+    "db_policy"                 : {
+        "broker_name"           : "",
+        "quote_num"             : "",
+        "policy_num"            : "",
+        "contract"              : "",
+        "status"                : "",
+        "block_chain_hash"      : ""
     }
 } 

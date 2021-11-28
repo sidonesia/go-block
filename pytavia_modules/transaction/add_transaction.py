@@ -48,11 +48,16 @@ class add_transaction:
             "0000"
         )
         try:
-            block           = params["block"]
             to_data         = params["to"]
             from_data       = params["from"]
             payload         = params["payload"]
+
+            blockchain_meta_rec = self.mgdDB.db_blockchain_meta.find_one({
+                "label"  : "BLOCKCHAIN_META"
+            })
+            block           = blockchain_meta_rec["last_block"]
             block           = int(block)
+            params["block"] = block
 
             hash_resp       = hash_transaction.hash_transaction({}).process( params )
             trans_data      = hash_resp.get("data")
@@ -89,7 +94,7 @@ class add_transaction:
             self.mgdDB.db_blockchain.update(
                 {
                     "pkey"        : fk_block_id,
-                    "block_hash"  : current_hash,
+                    "current_hash": current_hash,
                     "block"       : block 
                 },
                 {   "$set"        : { "trans_count" : trans_count }}
